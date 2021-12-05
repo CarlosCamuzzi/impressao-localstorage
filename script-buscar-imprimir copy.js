@@ -73,6 +73,14 @@ function exibirTela(relatorio, i) {
     salvarLocalStorage(relatorio, i);
 }
 
+// Refresh na page
+function limpaTela() {
+    var btn = document.querySelector("#limpar-tela");
+    btn.addEventListener("click", function () {
+        location.reload();
+    });
+}
+
 // Salvando dados no localSotarge
 function salvarLocalStorage(relatorio, i) {
     if (window.localStorage) {       // Suporte ao localStorage
@@ -88,8 +96,6 @@ function salvarLocalStorage(relatorio, i) {
         });
 
         localStorage.setItem('relatorioImpressao', JSON.stringify(relatorioImpressao));
-
-       // impressaoTeste(relatorioImpressao); // TESTE
     }
 }
 
@@ -103,36 +109,11 @@ function imprimirRelatorio() {
     janela.document.write(saida);       // Exibindo localStorage em nova janela
     janela.print();                     // Abrindo opção de imprimir
     // Limpando localStorage
-    localStorage.clear();
-    limpaTela();
+    localStorage.clear();               
+
+
 }
 
-// Refresh na page
-function limpaTela() {
-   // var btn = document.querySelector("#limpar-tela");
-    //btn.addEventListener("click", function () {
-        location.reload();
-   // });
-}
-
-
-
-/// TESTE
-
-       // impressaoTeste(relatorioImpressao); // TESTE
-// function impressaoTeste(relatorioImpressao) {
-//     document.write(relatorioImpressao.NumeroNF)
-//     //let dado = []
-//     for (let i = 0; i < impressaoTeste.length; i++) {
-//         dado = [
-//             numeroNF[i] = relatorioImpressao.NumeroNF,
-//             dataEmissao[i] = relatorioImpressao.DataEmissao,
-//             razaoSocial[i] = relatorioImpressao.RazaoSocial,
-//             chaveAcesso[i] = relatorioImpressao.cCaveAcesso,
-//             valorNF[i] = relatorioImpressao.ValoNF,
-//         ]
-//     }
-// }
 
 
 // LÓGICA DO LOCAL STORAGE
